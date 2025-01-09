@@ -1,8 +1,27 @@
 # alphabet 총 길이 26
 
 def find_max_occurred_alphabet(string):
-    alphabet = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l",
+    alphabet_array = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l",
                 "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
+    max_occurrence = 0
+    max_occurrence_alphabet = alphabet_array[0]
+
+    for alphabet in alphabet_array:
+        occurrence = 0
+
+        for char in string:
+            if not char.isalpha():
+                continue
+
+            if char == alphabet:
+                occurrence += 1
+
+        if occurrence > max_occurrence:
+            max_occurrence = occurrence
+            max_occurrence_alphabet = alphabet
+
+    return max_occurrence_alphabet
+
 
 # def find_max_occurred_alphabet(string):
 #     start_index = ord('a')
