@@ -6,6 +6,12 @@
 # for i in range(len(list)): 리스트의 길이만큼 순회
 # enumerate(list): 리스트를 인덱스와 값을 가진 객체로 변환 -> for i, v in enumerate(list)
 
+# 공간복잡도
+# 알고리즘에서 변수가 사용되고 있는 공간의 숫자
+# 일반적으로 상수 공간복잡도는 신경쓰지 않음
+# N에 의해 공간복잡도가 결정되는 경우에는 신경 쓸 필요가 있음
+# 시간복잡도에 비해서는 성능에 미치는 영향력이 낮음
+
 def find_max_occurred_alphabet(string):
     alphabet_array = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l",
                 "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
@@ -28,6 +34,8 @@ def find_max_occurred_alphabet(string):
 
     return max_occurrence_alphabet
 
+# 26 * (1 + 2 * N + 3) = 52N + 104
+# 상수 제거 -> N만큼의 시간복잡도
 
 # def find_max_occurred_alphabet(string):
 #     start_index = ord('a')
@@ -49,6 +57,12 @@ def find_max_occurred_alphabet(string):
 #     max_occurred_str = chr(start_index + max_occurred_index)
 #
 #     return max_occurred_str
+
+# 4 + (N * 1 + 2) + (26 * 3) + 1
+# N
+# 52N, 3N 과 같은 경우에도 계수가 다름으로 해서 시간복잡도의 효율성이 차이가 나는 것은 맞으나,
+# 그럼에도 불구하고 상수는 제거하고 N으로 보는 이유는 N^2 (차수) 등에 비해서는
+# 이런 공간복잡도까지 파악해가는게 시간복잡도보다는 성능에 지대하게 영향은 미치지 않기 때문이다.
 
 result = find_max_occurred_alphabet
 print("정답 = i 현재 풀이 값 =", result("hello my name is dingcodingco"))
